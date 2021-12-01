@@ -1,97 +1,42 @@
-#include<reg51.h>
-#include<string.h>
-sbit rs = P2^0;
-sbit e = P2^1;
-void init ();
-void delay(int a)
+#include <Servo.h>
+
+Servo myservo;  
+int ldr1 = 4; 
+int ldr2 = 5;
+int val1;
+int val2;   
+int pos=90;
+
+void setup() 
 {
-  int i,j;
-  for(i=0;i<a;i++)
-  for(j=0;j<a;J++);
+  myservo.attach(11); 
+  Serial.begin(9600);
+  myservo.write(pos);   
 }
-void lcd_cmd(int a)
+
+ 
+    
+void loop() 
 {
-  Pl=a;
-  rs=0;
-  e=1;
-  delay(10);
-  e=0;
-}
-void lcd_dat(int a)
-{
-   Pl=a;
-  rs=0;
-  e=1;
-  delay(10);
-  e=0;
-}
-void lcd_string(char *str)
-{
-  while(*str)
-  {
-    lcd_data(*str);
-    delay(100);
-    str++;
+  val1 = analogRead(ldr1);            
+  val2 = analogRead(ldr2);
+  val1 = map(val1, 0, 1023, 0, 180);     
+  val2 = map(val2, 0, 1023, 0, 180);     
+  if(val1 > (val2+50))
+  {    
+    if(pos<180)
+     pos=pos+1;
+    myservo.write(pos);
+    Serial.println("backward");         
+    delay(10);         
   }
+  else if(val2 > (val1+50))
+  {
+    if(pos>0)
+     pos=pos-1;
+    myservo.write(pos);
+    Serial.println("forward");         
+    delay(10); 
+  }
+                     
 }
-void main()
-{
-  int i;
-  unsigned char a2(15);
-  lcd_cmd(0x38);
-  lcd_cmd(0x0E);
-  lcd_cmd(0x01);
-  lcd_cmd(0x80);
-  init();
-    lcd_string("Welcome");
-    lcd_cmd(0xC0);
-    lcd_string("ID-please");
-    lcd_cmd(0x01);
-   while(l)
-   {
-     for(i=0;i<12;i++)
-     {
-        while(RI==0);
-       a2[i]=SBUF;
-       RI=0;
-     }
-     if(strcmp(a2,"14A456780A90")==0)
-     {
-       lcd_string("Deepak Welcome");
-       lcd_cmd(0x01);
-       lcd_string("Have a good day");
-       lcd_cmd(0xc0);
-       lcd_string("Enrolled");
-       delay(200);
-     }
-     else if(strcmp(a2,"14A456780A91")==0)
-     {
-       lcd_string("Nitin Welcome");
-       lcd_cmd(0x01);
-       lcd_string("Have a good day");
-       lcd_cmd(0xc0);
-       lcd_string("Enrolled");
-       delay(200);
-     }
-     else if(strcmp(a2,"14A456780A92")==0)
-     {
-        lcd_string("Damo Welcome");
-       lcd_cmd(0x01);
-       lcd_string("Have a good day");
-       lcd_cmd(0xc0);
-       lcd_string("Enrolled");
-       delay(200);
-     }
-     else
-       lcd-string("Wrong User ID");
-       lcd_cmd(0x01);
-   }
-}
-void init()
-{ 
-  EA=1;
-  ES=1;
-  TMOD = 0x20;
- 
-  
- 

@@ -1,0 +1,14 @@
+3_Implementation/src/adc.c:23:0: style: The function 'ADCinit' is never used. [unusedFunction]
+
+^
+3_Implementation/Documentation/main.c:19:0: style: The function 'loop' is never used. [unusedFunction]
+
+^
+3_Implementation/src/adc.c:9:0: style: The function 'read_adc' is never used. [unusedFunction]
+
+^
+3_Implementation/Documentation/main.c:10:0: style: The function 'setup' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingIncludeSystem]
+

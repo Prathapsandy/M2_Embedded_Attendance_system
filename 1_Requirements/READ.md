@@ -52,10 +52,8 @@ Two light dependent resistors are arranged on the edges of the solar panel. Ligh
 -   Tracking of sun and absorb energy and produce electricity
 
 # Details Requirements
-
 ## High Level Requirements
-
-| **ID** | **Description** | **Status** |
+| **ID | **Description** | **Status** |
 | --- | --- | --- |
 | HLR1 | User shall be able to track the sun | Implemented |
 | HLR2 | User shall be able to compare the temperature | Implemented |
@@ -63,7 +61,6 @@ Two light dependent resistors are arranged on the edges of the solar panel. Ligh
 | HLR4 | User shall be able to control the temperature of the system | Implemented |
 
 ## Low Level Requirements
-
 | **ID** | **Description** | **Status** |
 | --- | --- | --- |
 | LLR1 | Temperature should not affect the panel | Implemented |

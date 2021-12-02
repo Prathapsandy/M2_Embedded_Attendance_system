@@ -59,7 +59,6 @@ Two light dependent resistors are arranged on the edges of the solar panel. Ligh
 | HLR2 | User shall be able to compare the temperature | Implemented |
 | HLR3 | User shall be able to track and produce energy | Implemented |
 | HLR4 | User shall be able to control the temperature of the system | Implemented |
-
 ### Low Level Requirements
 | **ID** | **Description** | **Status** |
 | --- | --- | --- |

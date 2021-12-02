@@ -64,5 +64,3 @@ Two light dependent resistors are arranged on the edges of the solar panel. Ligh
 |----|----|----|
 | LLR1 | Temperature should not affect the panel | Implemented |
 | LLR2 | Need to store energy during sunny days | Implemented |
-
-
